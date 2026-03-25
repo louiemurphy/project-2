@@ -872,7 +872,7 @@
     /* CHAT WIDGET STYLES    */
     /* ===================== */
 
-    /* Floating button */
+    /* Floating button - responsive design */
     #chatFloatBtn {
       position: fixed;
       bottom: 28px;
@@ -918,6 +918,10 @@
       color: white;
     }
 
+    #chatFloatBtn .float-text {
+      display: inline-block;
+    }
+
     #chatFloatBtn .float-online {
       width: 8px;
       height: 8px;
@@ -933,10 +937,70 @@
       border-color: #ffffff;
     }
 
+    /* Mobile styles - icon only */
+    @media (max-width: 768px) {
+      #chatFloatBtn {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        padding: 0;
+        justify-content: center;
+        background: #1c1e21;
+      }
+      
+      body.dark-mode #chatFloatBtn {
+        background: #ffffff;
+      }
+      
+      #chatFloatBtn .float-text {
+        display: none;
+      }
+      
+      #chatFloatBtn .float-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
+      
+      #chatFloatBtn .float-online {
+        bottom: 8px;
+        left: 38px;
+        width: 10px;
+        height: 10px;
+      }
+      
+      /* Tooltip on hover for mobile (optional) */
+      #chatFloatBtn::after {
+        content: "Chat with Louie";
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: #1c1e21;
+        color: white;
+        font-size: 12px;
+        padding: 6px 12px;
+        border-radius: 8px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+        font-weight: 500;
+      }
+      
+      body.dark-mode #chatFloatBtn::after {
+        background: #ffffff;
+        color: #0d1117;
+      }
+      
+      #chatFloatBtn:hover::after {
+        opacity: 1;
+      }
+    }
+
     /* Chat window */
     #chatWindow {
       position: fixed;
-      bottom: 90px;
+      bottom: 100px;
       right: 28px;
       z-index: 999;
       width: 340px;
@@ -963,6 +1027,18 @@
       opacity: 1;
       transform: translateY(0) scale(1);
       pointer-events: all;
+    }
+
+    @media (max-width: 480px) {
+      #chatWindow {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 80px;
+      }
+      #chatFloatBtn {
+        right: 16px;
+        bottom: 16px;
+      }
     }
 
     /* Chat header */
@@ -1261,11 +1337,6 @@
       color: #9a9a9a;
     }
 
-    @media (max-width: 480px) {
-      #chatWindow { width: calc(100vw - 32px); right: 16px; bottom: 80px; }
-      #chatFloatBtn { right: 16px; bottom: 16px; }
-    }
-
     /* Responsive */
     @media (max-width: 1024px) {
       .connect-grid {
@@ -1397,7 +1468,7 @@
             <i class="fab fa-linkedin"></i> LinkedIn
           </a>
           <a href="#" id="resumeBtn" class="btn btn-white">
-            <i class="fas fa-download"></i> CV
+            <i class="fas fa-download"></i> Resume
           </a>
         </div>
       </div>
@@ -1409,11 +1480,11 @@
         <h2 class="section-title">
           <i class="fas fa-user section-icon"></i> About
         </h2>
-<div class="about-text">
-  <p>I'm a <strong>Software Engineer</strong> with a BS in Information Technology, skilled in building <strong>full-stack web and mobile applications</strong> and automation solutions for real-world business needs.</p>
-  <p>I specialize in <strong>CRM systems, workflow automation, and backend integrations</strong> — helping teams reduce manual tasks and boost efficiency. I’ve delivered projects end-to-end, from concept to deployment, blending technical expertise with business insight.</p>
-  <p>Recently, I’ve been integrating AI tools and developing <strong>intelligent automation workflows</strong> that connect technical solutions with business operations.</p>
-</div>
+        <div class="about-text">
+          <p>I'm a <strong>Software Engineer</strong> with a BS in Information Technology, experienced in building full-stack web applications and automation systems for real-world business use.</p>
+          <p>I specialize in <strong>CRM systems, workflow automation, and backend integrations</strong> — helping teams cut manual work and improve efficiency. I've shipped projects from concept to deployment, combining technical depth with business understanding.</p>
+          <p>Lately, I've been integrating AI tools and building intelligent automation workflows that bridge the gap between technical development and business operations.</p>
+        </div>
       </div>
 
       <div class="card">
@@ -1478,6 +1549,7 @@
         <span class="expertise-item">Software Engineer</span>
         <span class="expertise-item">Mobile Developer</span>
         <span class="expertise-item">AI Automation</span>
+        <span class="expertise-item">AI Integration</span>
         <span class="expertise-item">Quality Assurance (QA)</span>
         <span class="expertise-item">QCode Auditor</span>
       </div>
@@ -1695,8 +1767,8 @@
 
   <button id="chatFloatBtn" aria-label="Chat with Louie">
     <div class="float-avatar">L</div>
+    <span class="float-text">Chat with Louie</span>
     <span class="float-online"></span>
-    Chat with Louie
   </button>
 
   <div id="chatWindow" role="dialog" aria-label="Chat with Louie">
@@ -1948,14 +2020,14 @@ Personality: Friendly, professional, helpful, concise. You're open to full-time 
 
         const reply = data.content && data.content[0] && data.content[0].text
           ? data.content[0].text
-          : "Thanks for your message! Feel free to reach out via email at divinagracialouie9@gmail.com 😊";
+          : "Thanks for your message! Feel free to reach out via email at louiephilip.divinagracia@gmail.com 😊";
 
         conversationHistory.push({ role: 'assistant', content: reply });
         appendMessage(reply, 'louie');
 
       } catch (err) {
         removeTyping();
-        appendMessage("Oops, something went wrong! You can reach me directly at divinagracialouie9@gmail.com 😊", 'louie');
+        appendMessage("Oops, something went wrong! You can reach me directly at louiephilip.divinagracia@gmail.com 😊", 'louie');
       }
 
       isSending = false;
