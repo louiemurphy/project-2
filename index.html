@@ -486,6 +486,14 @@
     .fa-slack { color: #4a154b; }
     .fa-wordpress { color: #21759b; }
     .fa-shopify { color: #7ab55c; }
+    .fa-facebook { color: #1877f2; }
+    .fa-google { color: #4285f4; }
+    .fa-hubspot { color: #ff7a59; }
+    .fa-squarespace { color: #000000; }
+    .fa-calendar-alt { color: #2c3e50; }
+    .fa-file-alt { color: #f1c40f; }
+    .fa-envelope { color: #ea4335; }
+    .fa-chalkboard-user { color: #8e44ad; }
 
     .fa-github { color: #181717; }
     .fa-linkedin { color: #0a66c2; }
@@ -496,6 +504,11 @@
     body.dark-mode .fa-instagram { color: #e4405f; }
     body.dark-mode .fa-server { color: #ffffff; }
     body.dark-mode .fa-sticky-note { color: #ffffff; }
+    body.dark-mode .fa-squarespace { color: #ffffff; }
+    body.dark-mode .fa-calendar-alt { color: #9aa9b9; }
+    body.dark-mode .fa-file-alt { color: #f4d03f; }
+    body.dark-mode .fa-envelope { color: #ea4335; }
+    body.dark-mode .fa-chalkboard-user { color: #af7ac5; }
 
     /* Custom Icon Styles */
     .ts-icon {
@@ -969,7 +982,7 @@
         height: 10px;
       }
       
-      /* Tooltip on hover for mobile (optional) */
+      /* Tooltip on hover for mobile */
       #chatFloatBtn::after {
         content: "Chat with Louie";
         position: absolute;
@@ -1455,10 +1468,10 @@
           <span>San Miguel, Manolo Fortich, Bukidnon, PH</span>
         </div>
         <div class="job-title">
-          Software Engr. | Automation & AI | CRM Specialist
+          Software Engineer | Automation & AI | CRM Specialist
         </div>
         <div class="action-buttons">
-          <a href="mailto:louiephilip.divinagracia@gmail.com" class="btn btn-black">
+          <a href="mailto:divinagracialouie9@gmail.com" class="btn btn-black">
             <i class="fas fa-envelope"></i> Send Email
           </a>
           <a href="https://github.com/louiemurphy" target="_blank" class="btn btn-white">
@@ -1467,9 +1480,9 @@
           <a href="https://www.linkedin.com/in/louie-divinagracia-569aa8243" target="_blank" class="btn btn-white">
             <i class="fab fa-linkedin"></i> LinkedIn
           </a>
-  <a href="resume.pdf" download="Louie_Divinagracia_Resume.pdf" class="btn btn-white">
-    <i class="fas fa-download"></i> Resume
-  </a>
+          <a href="resume.pdf" download="Louie_Divinagracia_Resume.pdf" class="btn btn-white">
+            <i class="fas fa-download"></i> Resume
+          </a>
         </div>
       </div>
     </div>
@@ -1552,6 +1565,8 @@
         <span class="expertise-item">AI Integration</span>
         <span class="expertise-item">Quality Assurance (QA)</span>
         <span class="expertise-item">QCode Auditor</span>
+        <span class="expertise-item">Marketing Automation</span>
+        <span class="expertise-item">Funnel Building</span>
       </div>
     </div>
 
@@ -1583,6 +1598,23 @@
           <div class="tag-group">
             <span class="tag"><i class="fab fa-wordpress"></i> WordPress</span>
             <span class="tag"><i class="fab fa-shopify"></i> Shopify</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="category-title">Marketing & Funnel Tools</div>
+          <div class="tag-group">
+            <span class="tag"><i class="fab fa-facebook"></i> Meta Ads</span>
+            <span class="tag"><i class="fas fa-chalkboard-user"></i> ClickFunnels</span>
+            <span class="tag"><i class="fab fa-google"></i> Google Ads</span>
+            <span class="tag"><i class="fas fa-chart-line"></i> Google Analytics</span>
+            <span class="tag"><i class="fas fa-envelope"></i> Klaviyo</span>
+            <span class="tag"><i class="fab fa-hubspot"></i> HubSpot</span>
+            <span class="tag"><i class="fas fa-calendar-alt"></i> Calendly</span>
+            <span class="tag"><i class="fas fa-file-alt"></i> Jotform</span>
+            <span class="tag"><i class="fas fa-table"></i> Google Sheets</span>
+            <span class="tag"><i class="fab fa-squarespace"></i> Squarespace</span>
+            <span class="tag"><i class="fas fa-chart-simple"></i> Acuity</span>
           </div>
         </div>
 
@@ -1696,9 +1728,9 @@
           </h3>
           <div class="contact-card">
             <p class="connect-desc">
-              Open to full-time roles, freelance projects, and collaborations on automation and web development.
+              Open to full-time roles, freelance projects, and collaborations on automation, web development, and marketing funnels.
             </p>
-            <a href="mailto:louiephilip.divinagracia@gmail.com" class="connect-action">
+            <a href="mailto:divinagracialouie9@gmail.com" class="connect-action">
               Get in touch <i class="fas fa-arrow-right"></i>
             </a>
           </div>
@@ -1709,11 +1741,11 @@
             <i class="fas fa-address-card icon"></i> Contact Details
           </h3>
           <div class="contact-links">
-            <a href="mailto:louiephilip.divinagracia@gmail.com" class="contact-item-row">
+            <a href="mailto:divinagracialouie9@gmail.com" class="contact-item-row">
               <div class="contact-icon-small"><i class="fas fa-envelope"></i></div>
               <div class="contact-info">
                 <div class="contact-label-small">Email</div>
-                <div class="contact-value-small">louiephilip.divinagracia@gmail.com</div>
+                <div class="contact-value-small">divinagracialouie9@gmail.com</div>
               </div>
               <i class="fas fa-chevron-right contact-arrow-small"></i>
             </a>
@@ -1850,12 +1882,6 @@
       }
     });
     
-    // Resume Button
-    document.getElementById('resumeBtn').addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Resume PDF will be available soon. Feel free to reach out via email!');
-    });
-    
     // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1896,7 +1922,8 @@ About you:
 
 Your skills:
 - Full-stack: JavaScript, TypeScript, React, Next.js, Node.js, Express, MongoDB, PostgreSQL, Supabase, Tailwind CSS, REST API
-- Automation & AI: Zapier, Make (Integromat), n8n, Airtable, OpenAI API, HubSpot, GoHighLevel, Zoho, Anthropic, Google
+- Automation & AI: Zapier, Make (Integromat), n8n, Airtable, OpenAI API, HubSpot, GoHighLevel, Zoho
+- Marketing & Funnel Tools: Meta Ads, ClickFunnels, Google Ads, Google Analytics, Klaviyo, HubSpot, Calendly, Jotform, Google Sheets, Squarespace, Acuity
 - Tools: Git/GitHub, Postman, VS Code, Notion, Trello, Slack, Google Workspace
 
 Your projects:
@@ -1906,7 +1933,7 @@ Your projects:
 - Greenergy Solar Landing Page (greenergysolar.ph)
 - Simple Fam Fin (simplefamfin.vercel.app) - Family finance tracker with AI
 
-Contact: louiephilip.divinagracia@gmail.com | +63 938 648 0305
+Contact: divinagracialouie9@gmail.com | +63 938 648 0305
 
 Personality: Friendly, professional, helpful, concise. You're open to full-time roles, freelance, and collaborations. Keep responses SHORT (2-4 sentences max) and conversational. Don't use markdown formatting — plain text only.`;
 
@@ -2020,14 +2047,14 @@ Personality: Friendly, professional, helpful, concise. You're open to full-time 
 
         const reply = data.content && data.content[0] && data.content[0].text
           ? data.content[0].text
-          : "Thanks for your message! Feel free to reach out via email at louiephilip.divinagracia@gmail.com 😊";
+          : "Thanks for your message! Feel free to reach out via email at divinagracialouie9@gmail.com 😊";
 
         conversationHistory.push({ role: 'assistant', content: reply });
         appendMessage(reply, 'louie');
 
       } catch (err) {
         removeTyping();
-        appendMessage("Oops, something went wrong! You can reach me directly at louiephilip.divinagracia@gmail.com 😊", 'louie');
+        appendMessage("Oops, something went wrong! You can reach me directly at divinagracialouie9@gmail.com 😊", 'louie');
       }
 
       isSending = false;
