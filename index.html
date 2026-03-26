@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="description" content="Louie Divinagracia — Software Engineer specializing in full-stack development, AI automation, CRM systems, and marketing funnels. Available for work." />
+  <meta name="keywords" content="Software Engineer, Full-Stack Developer, AI Automation, CRM Specialist, Marketing Automation, ClickFunnels, Meta Ads, Web Developer" />
+  <meta name="author" content="Louie Divinagracia" />
+  <meta property="og:title" content="Louie Divinagracia — Software Engineer" />
+  <meta property="og:description" content="Building scalable web apps, AI automation, and marketing funnels. Available for full-time roles and collaborations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://louiedvngrcia.vercel.app" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Louie Divinagracia — Software Engineer | Automation & CRM Specialist</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -17,6 +25,8 @@
       overflow-x: hidden;
       position: relative;
       width: 100%;
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
     }
 
     body {
@@ -462,6 +472,11 @@
       font-size: 14px;
     }
 
+    .tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
     /* Brand Colors */
     .fa-js { color: #f7df1e; }
     .fa-react { color: #61dafb; }
@@ -553,11 +568,6 @@
 
     body.dark-mode .postgres-icon {
       color: #6a9bc2;
-    }
-
-    .tag:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     /* Projects Grid */
@@ -700,7 +710,7 @@
       text-decoration: none;
       font-size: 13px;
       color: #3e4042;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     body.dark-mode .connect-item {
@@ -710,7 +720,9 @@
     }
 
     .connect-item:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      background: var(--surface);
+      border-color: var(--border-hover);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
@@ -855,6 +867,18 @@
       transition: all 0.3s ease;
       flex-shrink: 0;
       border: 1px solid #e4e6eb;
+      background: #f0f2f5;
+      opacity: 0;
+      animation: fadeInImage 0.4s ease forwards;
+    }
+
+    .gallery-img.loaded {
+      opacity: 1;
+    }
+
+    @keyframes fadeInImage {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .gallery-img:hover {
@@ -879,6 +903,45 @@
     .footer-text {
       font-size: 13px;
       color: #8a8d91;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-color);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #backToTop:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    body.dark-mode #backToTop {
+      background: #21262d;
+      color: #e6edf3;
+      border-color: #30363d;
     }
 
     /* ===================== */
@@ -982,7 +1045,6 @@
         height: 10px;
       }
       
-      /* Tooltip on hover for mobile */
       #chatFloatBtn::after {
         content: "Chat with Louie";
         position: absolute;
@@ -1048,6 +1110,15 @@
         right: 16px;
         bottom: 80px;
       }
+      #chatWindow.open {
+        animation: slideUp 0.3s ease-out;
+      }
+      
+      @keyframes slideUp {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      
       #chatFloatBtn {
         right: 16px;
         bottom: 16px;
@@ -1350,6 +1421,30 @@
       color: #9a9a9a;
     }
 
+    /* Print Styles */
+    @media print {
+      .theme-toggle, #chatFloatBtn, #chatWindow, #backToTop, .gallery-section {
+        display: none !important;
+      }
+      
+      body, .card, .profile-header {
+        background: white !important;
+        color: black !important;
+        border: none !important;
+      }
+      
+      .tag, .expertise-item {
+        background: #f0f0f0 !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+      }
+      
+      a {
+        text-decoration: underline !important;
+        color: black !important;
+      }
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .connect-grid {
@@ -1471,7 +1566,7 @@
           Software Engineer | Automation & AI | CRM Specialist
         </div>
         <div class="action-buttons">
-          <a href="mailto:divinagracialouie9@gmail.com" class="btn btn-black">
+          <a href="mailto:louiephilip.divinagracia@gmail.com" class="btn btn-black">
             <i class="fas fa-envelope"></i> Send Email
           </a>
           <a href="https://github.com/louiemurphy" target="_blank" class="btn btn-white">
@@ -1497,6 +1592,7 @@
           <p>I'm a <strong>Software Engineer</strong> with a BS in Information Technology, experienced in building full-stack web applications and automation systems for real-world business use.</p>
           <p>I specialize in <strong>CRM systems, workflow automation, and backend integrations</strong> — helping teams cut manual work and improve efficiency. I've shipped projects from concept to deployment, combining technical depth with business understanding.</p>
           <p>Lately, I've been integrating AI tools and building intelligent automation workflows that bridge the gap between technical development and business operations.</p>
+          <p>I also have experience with <strong>marketing automation, funnel building, and paid ads management</strong> — bridging the gap between technical development and business growth.</p>
         </div>
       </div>
 
@@ -1567,6 +1663,7 @@
         <span class="expertise-item">QCode Auditor</span>
         <span class="expertise-item">Marketing Automation</span>
         <span class="expertise-item">Funnel Building</span>
+        <span class="expertise-item">Supply Chain Systems</span>
       </div>
     </div>
 
@@ -1678,6 +1775,12 @@
             <div class="project-tech">Next.js • TypeScript • Supabase • AI</div>
             <div class="project-link"><i class="fas fa-external-link-alt"></i> simplefamfin.vercel.app</div>
           </a>
+          <a href="https://supplier-s2mx.vercel.app/" target="_blank" class="project-card">
+            <div class="project-title">Supplier Management System</div>
+            <div class="project-desc">Centralized supplier database for supply chain operations — track company details, contact info, product categories, and locations with search/filter capabilities</div>
+            <div class="project-tech">Next.js • TypeScript • Supabase • Tailwind</div>
+            <div class="project-link"><i class="fas fa-external-link-alt"></i> supplier-s2mx.vercel.app</div>
+          </a>
         </div>
       </div>
     </div>
@@ -1730,7 +1833,7 @@
             <p class="connect-desc">
               Open to full-time roles, freelance projects, and collaborations on automation, web development, and marketing funnels.
             </p>
-            <a href="mailto:divinagracialouie9@gmail.com" class="connect-action">
+            <a href="mailto:louiephilip.divinagracia@gmail.com" class="connect-action">
               Get in touch <i class="fas fa-arrow-right"></i>
             </a>
           </div>
@@ -1741,11 +1844,11 @@
             <i class="fas fa-address-card icon"></i> Contact Details
           </h3>
           <div class="contact-links">
-            <a href="mailto:divinagracialouie9@gmail.com" class="contact-item-row">
+            <a href="mailto:louiephilip.divinagracia@gmail.com" class="contact-item-row">
               <div class="contact-icon-small"><i class="fas fa-envelope"></i></div>
               <div class="contact-info">
                 <div class="contact-label-small">Email</div>
-                <div class="contact-value-small">divinagracialouie9@gmail.com</div>
+                <div class="contact-value-small">louiephilip.divinagracia@gmail.com</div>
               </div>
               <i class="fas fa-chevron-right contact-arrow-small"></i>
             </a>
@@ -1775,14 +1878,14 @@
         <i class="fas fa-images section-icon"></i> Gallery
       </h2>
       <div class="gallery-scroll">
-        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" alt="Coding Setup" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop" alt="Code Editor" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop" alt="Web Development" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Data Analytics" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop" alt="AI Brain" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop" alt="Team Meeting" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=300&fit=crop" alt="Automation" class="gallery-img">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" alt="Server Room" class="gallery-img">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" alt="Coding Setup" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop" alt="Code Editor" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop" alt="Web Development" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Data Analytics" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop" alt="AI Brain" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop" alt="Team Meeting" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=300&fit=crop" alt="Automation" class="gallery-img" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" alt="Server Room" class="gallery-img" loading="lazy">
       </div>
     </div>
 
@@ -1792,6 +1895,11 @@
       <p class="footer-text">© 2026 Louie Phillip Divinagracia. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <!-- ========================== -->
   <!-- CHAT WITH LOUIE WIDGET     -->
@@ -1860,7 +1968,6 @@
         icon.classList.add('fa-moon');
       }
       
-      // Update GitHub icon color
       const githubIcons = document.querySelectorAll('.connect-item .fa-github');
       githubIcons.forEach(icon => {
         if (isDark) {
@@ -1881,6 +1988,32 @@
         icon.style.color = '#181717';
       }
     });
+    
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Lazy load gallery images with animation
+    const galleryImages = document.querySelectorAll('.gallery-img');
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          imageObserver.unobserve(img);
+        }
+      });
+    }, { threshold: 0.1 });
+    galleryImages.forEach(img => imageObserver.observe(img));
     
     // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
@@ -1932,8 +2065,9 @@ Your projects:
 - AI Automation with Make.com - Intelligent workflows with OpenAI
 - Greenergy Solar Landing Page (greenergysolar.ph)
 - Simple Fam Fin (simplefamfin.vercel.app) - Family finance tracker with AI
+- Supplier Management System (supplier-s2mx.vercel.app) - Supplier database for supply chain operations
 
-Contact: divinagracialouie9@gmail.com | +63 938 648 0305
+Contact: louiephilip.divinagracia@gmail.com | +63 938 648 0305
 
 Personality: Friendly, professional, helpful, concise. You're open to full-time roles, freelance, and collaborations. Keep responses SHORT (2-4 sentences max) and conversational. Don't use markdown formatting — plain text only.`;
 
@@ -2047,14 +2181,14 @@ Personality: Friendly, professional, helpful, concise. You're open to full-time 
 
         const reply = data.content && data.content[0] && data.content[0].text
           ? data.content[0].text
-          : "Thanks for your message! Feel free to reach out via email at divinagracialouie9@gmail.com 😊";
+          : "Thanks for your message! Feel free to reach out via email at louiephilip.divinagracia@gmail.com 😊";
 
         conversationHistory.push({ role: 'assistant', content: reply });
         appendMessage(reply, 'louie');
 
       } catch (err) {
         removeTyping();
-        appendMessage("Oops, something went wrong! You can reach me directly at divinagracialouie9@gmail.com 😊", 'louie');
+        appendMessage("Oops, something went wrong! You can reach me directly at louiephilip.divinagracia@gmail.com 😊", 'louie');
       }
 
       isSending = false;
